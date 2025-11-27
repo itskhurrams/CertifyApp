@@ -13,8 +13,6 @@ namespace Certify.Domain.Entities.Base
             State = ChangeState.New;
         }
 
-        #region State 
-
         public ChangeState State { get; private set; }
 
         protected bool SetProperty<T>(
@@ -38,55 +36,9 @@ namespace Certify.Domain.Entities.Base
 
         public void AcceptChanges() => State = ChangeState.Unchanged;
 
-        public virtual void RejectChanges()
-        {
-            // Override in derived classes if you keep original values
-            State = ChangeState.Unchanged;
-        }
+        public virtual void RejectChanges() => State = ChangeState.Unchanged;
 
         public virtual bool IsValid() => true;
-
-        #endregion
-
-        #region Audit fields
-
-        private bool isActive;
-        private int createdBy;
-        private DateTime createdDate;
-        private int? updatedBy;
-        private DateTime? updatedDate;
-
-        public bool IsActive
-        {
-            get => isActive;
-            set => SetProperty(ref isActive, value);
-        }
-
-        public int CreatedBy
-        {
-            get => createdBy;
-            set => SetProperty(ref createdBy, value);
-        }
-
-        public DateTime CreatedDate
-        {
-            get => createdDate;
-            set => SetProperty(ref createdDate, value);
-        }
-
-        public int? UpdatedBy
-        {
-            get => updatedBy;
-            set => SetProperty(ref updatedBy, value);
-        }
-
-        public DateTime? UpdatedDate
-        {
-            get => updatedDate;
-            set => SetProperty(ref updatedDate, value);
-        }
-
-        #endregion
     }
 
     public enum ChangeState
