@@ -1,7 +1,7 @@
 ﻿namespace Certify.Domain.Entities.Base
 {
     [Serializable]
-    public abstract class AuditableBaseEntity : BaseEntity
+    public abstract class BaseAuditableEntity : BaseEntity
     {
         private bool isActive;
         private int createdBy;
