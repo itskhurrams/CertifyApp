@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Project Path="Certify.API/Certify.API.csproj" />
+  <Project Path="Certify.Application/Certify.Application.csproj" />
+  <Project Path="Certify.Domain/Certify.Domain.csproj" />
+  <Project Path="Certify.Infrastructure/Certify.Infrastructure.csproj" />
+</Solution>
