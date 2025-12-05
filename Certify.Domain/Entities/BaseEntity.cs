@@ -1,7 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Certify.Domain.Entities.Base
+namespace Certify.Domain.Entities
 {
     [Serializable]
     public abstract class BaseEntity : INotifyPropertyChanged
@@ -33,6 +34,8 @@ namespace Certify.Domain.Entities.Base
         }
 
         public void MarkDeleted() => State = ChangeState.Deleted;
+
+        public void MarkModified() => State = ChangeState.Modified;
 
         public void AcceptChanges() => State = ChangeState.Unchanged;
 
